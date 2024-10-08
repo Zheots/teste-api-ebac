@@ -4,7 +4,7 @@ import contratoUsuarios from '../contracts/usuarios.contract'
 describe('Testes da Funcionalidade Usuários', () => {
   let token
   beforeEach(() => {
-    cy.token('fulano@qa.com', 'teste').then(tkn => { token = tkn })
+    cy.token('beltrano@qa.com', 'teste').then(tkn => { token = tkn })
   });
 
   it('Deve validar contrato de usuários', () => {
