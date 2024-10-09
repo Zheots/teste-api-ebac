@@ -7,6 +7,14 @@ describe('Testes da Funcionalidade Usuários', () => {
     cy.token('fulano@qa.com', 'teste').then(tkn => { token = tkn })
   });
 
+  it('Cadastrar um usuario INICIAL', () => {
+    let nome = 'Fulano da Silva'
+    let email = 'fulano@qa.com'
+    let senha = 'teste'
+    let administrador = 'true'
+    cy.cadastrarUsuario(nome , email , senha , administrador)
+  });
+
   it('Deve validar contrato de usuários', () => {
     cy.request('usuarios').then(response =>{
       return contratoUsuarios.validateAsync(response.body)

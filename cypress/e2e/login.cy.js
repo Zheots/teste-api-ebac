@@ -2,6 +2,14 @@
 
 describe('Login', () => {
 
+    it('Cadastrar um usuario INICIAL', () => {
+        let nome = 'Fulano da Silva'
+        let email = 'fulano@qa.com'
+        let senha = 'teste'
+        let administrador = 'true'
+        cy.cadastrarUsuario(nome , email , senha , administrador)
+      });
+
     it('Deve fazer login com sucesso', () => {
         cy.request({
             method: 'POST',
