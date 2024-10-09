@@ -4,15 +4,8 @@ import contratoUsuarios from '../contracts/usuarios.contract'
 describe('Testes da Funcionalidade Usuários', () => {
   let token
   beforeEach(() => {
+    cy.cadastrarUsuario('Fulano da Silva' , 'fulano@qa.com' , 'teste' , 'true')
     cy.token('fulano@qa.com', 'teste').then(tkn => { token = tkn })
-  });
-
-  it('Cadastrar um usuario INICIAL', () => {
-    let nome = 'Fulano da Silva'
-    let email = 'fulano@qa.com'
-    let senha = 'teste'
-    let administrador = 'true'
-    cy.cadastrarUsuario(nome , email , senha , administrador)
   });
 
   it('Deve validar contrato de usuários', () => {
@@ -47,7 +40,7 @@ describe('Testes da Funcionalidade Usuários', () => {
 
   it('Deve validar um usuário com email inválido', () => {
     let nome = 'Fulano da Silva'
-    let email = 'beltrano@qa.com.br'
+    let email = 'fulano@qa.com'
     let senha = 'teste'
     let administrador = 'true'
     cy.cadastrarUsuario(nome , email , senha , administrador)
